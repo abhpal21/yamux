@@ -562,3 +562,9 @@ func (s *Stream) Shrink() {
 	}
 	s.recvLock.Unlock()
 }
+
+func (s *Stream) CloseWrite() error {
+	// Send FIN to remote
+	s.Close()
+	return nil
+}
